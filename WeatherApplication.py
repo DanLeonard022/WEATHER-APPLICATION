@@ -1,3 +1,15 @@
+# SECTION LFCA322M010 
+"""
+"Real-Time Weather Application with Visual, Timezone, and Currency Conversion Integration"
+
+    MEMBERS
+
+1. BELMONTE, DAN LEONARD V.
+2. GUIRIT, AISEA MAE 
+3. TORRES CRISHIA MAE
+
+"""
+
 import sys
 import cv2
 import os
@@ -10,7 +22,7 @@ from PySide6.QtWidgets import QApplication, QWidget, QVBoxLayout, QHBoxLayout, Q
 
 
 def get_weather(city): 
-    API_key = "00a93aac90f5d399e148ad3fd2d77326"  # OpenWeatherMap API key
+    API_key = "00a93aac90f5d399e148ad3fd2d77326"  # REPLACE "YOUR_API_KEY" with your OpenWeatherMap API key
     url = f"https://api.openweathermap.org/data/2.5/weather?q={city}&appid={API_key}"
     res = requests.get(url)
 
@@ -30,7 +42,7 @@ def get_weather(city):
 
 
 def get_currency_exchange_rate(base_currency, target_currency):
-    api_key = "da3f0ec46ed6653a3ca735ad"  # ExchangeRate API key
+    api_key = "da3f0ec46ed6653a3ca735ad"  # REPLACE "YOUR_API_KEY" with your ExchangeRate API key
     url = f"https://v6.exchangerate-api.com/v6/{api_key}/latest/{base_currency}"
     response = requests.get(url)
 
@@ -47,7 +59,7 @@ def get_currency_exchange_rate(base_currency, target_currency):
 class WeatherApp(QWidget):
     def __init__(self):
         super().__init__()
-        self.setWindowTitle("Weather Application (LFCA322M032)")
+        self.setWindowTitle("Weather Application (LFCA322M010)")
         self.resize(800, 600)
 
         # Default timezone
@@ -214,12 +226,11 @@ class WeatherApp(QWidget):
 
         # Convert the country's currency to PHP
         country_currency_map = {
-            "KR": "KRW",  # South Korea uses Korean Won
-            "JP": "JPY",  # Japan uses Japanese Yen
-            "US": "USD",  # United States uses US Dollar
-            "PH": "PHP"   # Philippines uses Peso
-            # Add more country codes and their currency codes as needed
-        }
+        "AE": "AED", "AF": "AFN", "AG": "XCD", "AL": "ALL", "AM": "AMD",
+        "AN": "ANG", "AO": "AOA", "AQ": "AQD", "AR": "ARS", "AU": "AUD",
+        "AZ": "AZN", "BA": "BAM", "BB": "BBD", "BD": "BDT", "BE": "XOF",
+        "ZW": "ZWD"
+    }
 
         country_currency = country_currency_map.get(country, "USD")  # Default to USD if country is not found
         exchange_rate = get_currency_exchange_rate(country_currency, "PHP")
