@@ -75,7 +75,9 @@ class WeatherApp(QWidget):
             "clear": os.path.join(video_folder, "clear.mp4"),
             "default": os.path.join(video_folder, "default2.mp4"),
             "light_rain": os.path.join(video_folder, "light_rain.mp4"),
-            "snow": os.path.join(video_folder, "snow.mp4")
+            "snow": os.path.join(video_folder, "snow.mp4"),
+            "mist": os.path.join(video_folder, "mist.mp4"),
+            "fog": os.path.join(video_folder, "fog.mp4"),
         }
 
         self.cap = cv2.VideoCapture(self.video_paths["default"])
@@ -271,6 +273,10 @@ class WeatherApp(QWidget):
             video_path = self.video_paths["clear"]
         elif "snow" in description.lower():
             video_path = self.video_paths["snow"]
+        elif "mist" in description.lower():
+            video_path = self.video_paths["mist"]
+        elif "fog" in description.lower():
+            video_path = self.video_paths["fog"]
         else:
             video_path = self.video_paths["default"]
 
