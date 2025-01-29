@@ -76,7 +76,6 @@ class WeatherApp(QWidget):
             "default": os.path.join(video_folder, "default2.mp4"),
             "light_rain": os.path.join(video_folder, "light_rain.mp4"),
             "snow": os.path.join(video_folder, "snow.mp4")
-            
         }
 
         self.cap = cv2.VideoCapture(self.video_paths["default"])
@@ -226,10 +225,18 @@ class WeatherApp(QWidget):
 
         # Convert the country's currency to PHP
         country_currency_map = {
-        "AE": "AED", "AF": "AFN", "AG": "XCD", "AL": "ALL", "AM": "AMD",
-        "AN": "ANG", "AO": "AOA", "AQ": "AQD", "AR": "ARS", "AU": "AUD",
-        "AZ": "AZN", "BA": "BAM", "BB": "BBD", "BD": "BDT", "BE": "XOF",
-        "ZW": "ZWD"
+    "AE": "AED", "AF": "AFN", "AG": "XCD", "AL": "ALL", "AM": "AMD",
+    "AN": "ANG", "AO": "AOA", "AQ": "AQD", "AR": "ARS", "AU": "AUD",
+    "AZ": "AZN", "BA": "BAM", "BB": "BBD", "BD": "BDT", "BE": "XOF",
+    "BR": "BRL", "BG": "BGN", "CA": "CAD", "CH": "CHF", "CN": "CNY",
+    "CO": "COP", "CR": "CRC", "CZ": "CZK", "DE": "EUR", "DK": "DKK",
+    "EG": "EGP", "ES": "EUR", "FR": "EUR", "GB": "GBP", "GR": "EUR",
+    "HK": "HKD", "HU": "HUF", "ID": "IDR", "IL": "ILS", "IN": "INR",
+    "IT": "EUR", "JP": "JPY", "KR": "KRW", "LK": "LKR", "MY": "MYR",
+    "MX": "MXN", "NG": "NGN", "NL": "EUR", "NO": "NOK", "NZ": "NZD",
+    "PH": "PHP", "PK": "PKR", "PL": "PLN", "PT": "EUR", "RU": "RUB",
+    "SA": "SAR", "SE": "SEK", "SG": "SGD", "TH": "THB", "TR": "TRY",
+    "TW": "TWD", "US": "USD", "VN": "VND", "ZA": "ZAR", "ZW": "ZWD"
     }
 
         country_currency = country_currency_map.get(country, "USD")  # Default to USD if country is not found
